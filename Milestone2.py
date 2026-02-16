@@ -8,7 +8,6 @@ def get_sentiment(text):
     if polarity > 0:
         return "positive", polarity
     elif polarity < 0:
-        
         return "negative", polarity
     else:
         return "neutral", polarity
@@ -24,26 +23,26 @@ if __name__ == "__main__":
 
     df.to_csv("Milestone2_Sentiment_Results_new.csv", index=False)
 
-    print("Milestone 2 completed successfully")
+    print("Milestone 2 completed successfully!")
 
-    sentiment_counts = df["sentiment"].value_counts()
+    print(df[["clean_feedback", "sentiment", "confidence_score"]].head())
 
-    plt.figure(figsize=(8,5))
-    colors = ["green", "red", "gray"]
+    sentiment_counts = df['sentiment'].value_counts()
 
-    sentiment_counts.plot(kind="bar", color=colors)
+    plt.figure(figsize=(8, 5))
+    colors = ['green', 'red', 'gray']
+    sentiment_counts.plot(kind='bar', color=colors)
 
-    plt.title("How Customers Feel - Sentiment Summary", fontsize=14)
-    plt.xlabel("Sentiment", fontsize=12)
-    plt.ylabel("Number of Reviews", fontsize=12)
+    plt.title('How Customers Feel - Sentiment Summary', fontsize=14)
+    plt.xlabel('Sentiment', fontsize=12)
+    plt.ylabel('Number of Reviews', fontsize=12)
     plt.xticks(rotation=0)
 
     for i, count in enumerate(sentiment_counts):
-        plt.text(i, count + 0.2, str(count), ha="center", fontsize=11)
+        plt.text(i, count + 20, str(count), ha='center', fontsize=11)
 
-    plt.savefig("sentiment_bar_chart.png", dpi=100, bbox_inches="tight")
+    plt.savefig('sentiment_bar_chart.png', dpi=100, bbox_inches='tight')
+
+    print("Bar chart saved as: sentiment_bar_chart.png")
+
     plt.show()
-
-    print("Bar chart saved as sentiment_bar_chart.png")
-
-    print(df[["clean_feedback", "sentiment", "confidence_score"]].head())
