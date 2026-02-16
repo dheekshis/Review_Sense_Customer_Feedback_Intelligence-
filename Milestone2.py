@@ -8,6 +8,7 @@ def get_sentiment(text):
     if polarity > 0:
         return "positive", polarity
     elif polarity < 0:
+        
         return "negative", polarity
     else:
         return "neutral", polarity
