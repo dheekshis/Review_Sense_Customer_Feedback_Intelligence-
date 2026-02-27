@@ -50,6 +50,7 @@ def load_data():
     df = pd.read_csv("Milestone2_Sentiment_Results_new.csv")
     if "date" in df.columns:
         df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df["sentiment"] = df["sentiment"].str.capitalize()
     return df
 
 @st.cache_data
