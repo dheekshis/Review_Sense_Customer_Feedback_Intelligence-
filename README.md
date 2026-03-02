@@ -1,165 +1,253 @@
-# Review_Sense_Customer_Feedback_Intelligence
+📊 ReviewSense – Turning Customer Feedback into Actionable Insights
 
-# 📊 ReviewSense – Extracting Insights From Customer Feedback
+✨ Project Overview
 
-🚀 Overview
+ReviewSense is a comprehensive customer feedback analytics system that converts raw textual reviews into structured, data-driven insights.
 
-ReviewSense is an AI-powered customer feedback analytics system that transforms raw, unstructured customer reviews into meaningful business insights using Natural Language Processing (NLP) and data visualization techniques.
+It processes unstructured customer opinions and transforms them into measurable business intelligence using Natural Language Processing (NLP) and interactive dashboards.
 
-Businesses receive thousands of textual reviews from customers across platforms such as e-commerce websites, surveys, and mobile applications. These reviews contain valuable information about customer satisfaction, product quality, service performance, and overall brand perception. However, since the data is unstructured text, it is difficult to analyze directly.
+The workflow is organized into four major stages:
 
-This project demonstrates how Python-based NLP techniques can convert raw feedback into measurable insights and interactive visual analytics.
+① Data Cleaning & Preparation
+② Sentiment Analysis
+③ Keyword Extraction
+④ Interactive Dashboard Visualization
+
+The final deliverable is an interactive BI dashboard built with Streamlit.
 
 
+🏗 System Architecture
 
-❗ Problem Statement
 
-Organizations face several challenges when working with customer reviews:
+Unstructured Reviews
+        ↓
+Text Cleaning & Formatting
+        ↓
+Sentiment Detection
+        ↓
+Keyword Mining
+        ↓
+Interactive Dashboard
+        ↓
+Business Intelligence
 
-* Large volume of unstructured feedback
-* Manual review analysis is time-consuming
-* Difficult to measure customer sentiment accurately
-* Hard to identify common complaints or praises
-* Limited visibility into trends and product performance
+🔹 Milestone 1 – Data Cleaning & Preprocessing
 
-This project builds an automated system to process customer reviews and generate actionable insights.
+🎯 Goal
 
-🎯 Objectives
+Prepare and standardize raw feedback data for accurate NLP processing.
 
-* Clean and preprocess raw customer feedback
-* Perform sentiment analysis on textual reviews
-* Generate sentiment confidence scores
-* Extract frequently mentioned keywords
-* Identify patterns and recurring themes
-* Create an interactive dashboard for visualization
-* Enable data-driven decision making
+⚙️ Activities Performed
 
-🏗 System Workflow
+✓ Eliminated special characters & punctuation
+✓ Converted all text to lowercase
+✓ Removed redundant spaces
+✓ Standardized formatting
+✓ Created a new column → clean_feedback
 
-The system follows a structured analytical pipeline:
+📥 Input
 
-1. Load customer feedback dataset
-2. Clean and normalize raw text
-3. Perform sentiment classification using polarity scoring
-4. Generate structured sentiment output
-5. Extract keywords and compute frequency
-6. Create interactive visual dashboard
-7. Allow filtering and exporting of insights
+Raw review dataset (CSV format)
+
+📤 Output
+
+Milestone1_cleaned_feedback.csv
+
+🛠 Tools & Libraries
+
+• Python
+• pandas
+• Regular Expressions (re)
+
+
+🔹 Milestone 2 – Sentiment Analysis
+
+🎯 Goal
+
+Categorize customer reviews into:
+
+➤ Positive
+➤ Negative
+➤ Neutral
+
+⚙️ Activities Performed
+
+✓ Applied TextBlob polarity scoring
+✓ Assigned sentiment labels
+✓ Calculated confidence scores
+✓ Generated sentiment distribution chart
+✓ Created bar graph visualization
+
+📥 Input
+
+Milestone1_cleaned_feedback.csv
+
+📤 Output
+
+• Milestone2_Sentiment_Results_new.csv
+• sentiment_bar_chart.png
+
+📊 Output Fields
+
+• clean_feedback
+• sentiment
+• confidence_score
+
+🛠 Tools & Libraries
+
+• Python
+• pandas
+• TextBlob
+• matplotlib
+
+
+🔹 Milestone 3 – Keyword Extraction
+
+🎯 Goal
+
+Extract high-frequency keywords from customer reviews.
+
+⚙️ Activities Performed
+
+✓ Lowercased text
+✓ Removed non-alphabetic characters
+✓ Tokenized text into words
+✓ Calculated word frequency using Counter
+✓ Ranked keywords by frequency
+
+📥 Input
+
+Milestone2_Sentiment_Results_new.csv
+
+📤 Output
+
+Milestone3_Keyword_Insights.csv
+
+📊 Output Fields
+
+• keyword
+• frequency
+
+🛠 Tools & Libraries
+
+• Python
+• pandas
+• collections.Counter
+• Regular Expressions (re)
+
+
+🔹 Milestone 4 – Interactive Dashboard
+
+🎯 Goal
+
+Convert analytical outputs into a dynamic business intelligence dashboard.
+
+🎛 Sidebar Filters
+
+✓ Sentiment selector (Positive / Negative / Neutral)
+✓ Product filter
+✓ Date range selector
+
+📌 KPI Indicators
+
+• Total Reviews
+• % Positive
+• % Negative
+• % Neutral
+
+📊 Visual Components
+
+▸ Sentiment distribution bar graph
+▸ Product-wise sentiment summary table
+▸ Sentiment heatmap (Product vs Sentiment)
+▸ Monthly sentiment trend chart
+▸ Top keyword frequency chart
+▸ Word cloud visualization
+▸ Confidence score histogram
+
+📤 Export Options
+
+⬇ Download filtered dataset (CSV)
+⬇ Download keyword insights (CSV)
+
+📥 Inputs
+
+• Milestone2_Sentiment_Results_new.csv
+• Milestone3_Keyword_Insights.csv
+
+📤 Outputs
+
+Interactive Streamlit Application
+
+Exportable files:
+
+• ReviewSense_Filtered_Reviews.csv
+• ReviewSense_Keywords.csv
 
 🛠 Technology Stack
 
-Programming Language
+• Python
+• pandas
+• TextBlob
+• matplotlib
+• seaborn
+• WordCloud
+• Streamlit
 
-* Python
+▶️ Setup & Execution Guide
 
-Data Processing
-
-* pandas
-
-Natural Language Processing
-
-* TextBlob
-* Regular Expressions (re)
-
-Data Analysis
-
-* collections.Counter
-
-Visualization
-
-* matplotlib
-* seaborn
-* wordcloud
-
-Dashboard Framework
-
-* Streamlit
-
-📊 Key Features
-
-* Automated text cleaning and preprocessing
-* Sentiment classification (Positive / Negative / Neutral)
-* Confidence score calculation
-* Keyword frequency analysis
-* Sentiment distribution visualization
-* Product-wise performance analysis
-* Monthly sentiment trend analysis
-* Word cloud generation
-* Confidence score histogram
-* Downloadable filtered datasets
-* Interactive dashboard with real-time filtering
-
-
-📈 Example Insight
-
-If customer feedback frequently includes words like:
-
-* "delivery"
-* "experience"
-* "support"
-* "quality"
-
-The system highlights these as recurring themes.
-
-If negative sentiment increases over certain months, the trend analysis graph helps detect it early.
-
-This allows businesses to take corrective action quickly.
-
-
-▶️ How to Run the Project
-
-1️⃣ Install Required Libraries
+Step ① – Install Required Packages
 
 bash
 pip install pandas textblob matplotlib seaborn wordcloud streamlit
 
+Step ② – Execute Sentiment Module
+bash
+python milestone2.py
 
-2️⃣ Run Processing Scripts
+
+Step ③ – Execute Keyword Module
 
 bash
-python milestone1.py
-python milestone2.py
 python milestone3.py
 
-
-3️⃣ Launch Interactive Dashboard
+Step ④ – Launch Dashboard
 
 bash
-streamlit run milestone4.py
+python -m streamlit run milestone4.py
 
-Open in browser:
+📊 Business Impact
 
-http://localhost:8501
+ReviewSense empowers organizations to:
 
- 🌍 Real-World Applications
+✓ Track customer satisfaction levels
+✓ Evaluate product performance
+✓ Detect recurring issues
+✓ Monitor sentiment trends over time
+✓ Support data-driven decision-making
+✓ Export insights for reporting
 
-This system can be used by:
+🎓 Key Learning Highlights
 
-* E-commerce companies analyzing product reviews
-* Marketing teams designing targeted campaigns
-* Product managers identifying improvement areas
-* Customer support teams detecting dissatisfied customers
-* Startups building AI-powered customer intelligence systems
+• Text preprocessing fundamentals
+• NLP-based sentiment classification
+• Keyword frequency analysis
+• Data visualization techniques
+• Dashboard creation using Streamlit
+• Designing an end-to-end analytics pipeline
 
-🎓 Learning Outcomes
+🏁 Final Summary
 
-This project demonstrates:
+ReviewSense effectively converts raw textual feedback into structured and meaningful business insights through:
 
-* End-to-end NLP pipeline development
-* Sentiment analysis implementation
-* Keyword extraction techniques
-* Interactive dashboard development
-* Real-world AI application in business analytics
+✔ Sentiment Classification
+✔ Keyword Analytics
+✔ Interactive Visualization
 
-✅ Conclusion
+This project showcases a complete real-world analytics pipeline suitable for business intelligence and decision-support applications.
 
-ReviewSense successfully transforms raw customer feedback into structured, measurable insights.
+📜 License
 
-By integrating text preprocessing, sentiment analysis, keyword extraction, and interactive visualization, the system enables businesses to understand customer behavior more effectively and make informed strategic decisions.
+This project is licensed under the MIT License.
 
-It showcases how modern AI and NLP techniques can bridge the gap between unstructured text data and actionable business intelligence.
-
-📄 License
-
-This project was developed during an internship for educational and demonstration purposes.
-All rights reserved.
+Developed as part of my Artificial Intelligence Internship – 2026.
